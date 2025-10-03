@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricelist & Form Pembelian Genshin Impact - TOPUPGRAM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #C9DBF0;
+      margin: 0;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .pricelist-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      max-width: 500px;
+      margin: 0 auto 30px auto;
+    }
+    .price-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+      font-size: 12px;
+    }
+    .price-box:hover {
+      transform: scale(1.05);
+    }
+    .item-name {
+      font-weight: bold;
+      font-size: 13px;
+    }
+    .item-amount {
+      font-size: 11px;
+      margin: 3px 0;
+    }
+    .item-price {
+      font-size: 12px;
+      color: #333;
+    }
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-size: 13px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 12px;
+    }
+    input, select {
+      width: 100%;
+      padding: 6px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #007bff;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>GENSHIN IMPACT</h2>
+
+  <!-- Pricelist -->
+  <div class="pricelist-container">
+    <div class="price-box" onclick="fillForm('60 Genesis Crystals','Rp 14.000')">
+      <div class="item-name">60 Genesis Crystals</div>
+      <div class="item-amount">60</div>
+      <div class="item-price">Rp 14.000</div>
+    </div>
+    <div class="price-box" onclick="fillForm('330 Genesis Crystals','Rp 60.000')">
+      <div class="item-name">330 Genesis Crystals</div>
+      <div class="item-amount">330</div>
+      <div class="item-price">Rp 60.000</div>
+    </div>
+    <div class="price-box" onclick="fillForm('1.090 Genesis Crystals','Rp 180.000')">
+      <div class="item-name">1.090 Genesis Crystals</div>
+      <div class="item-amount">1.090</div>
+      <div class="item-price">Rp 180.000</div>
+    </div>
+    <div class="price-box" onclick="fillForm('2.240 Genesis Crystals','Rp 380.000')">
+      <div class="item-name">2.240 Genesis Crystals</div>
+      <div class="item-amount">2.240</div>
+      <div class="item-price">Rp 380.000</div>
+    </div>
+    <div class="price-box" onclick="fillForm('3.880 Genesis Crystals','Rp 595.000')">
+      <div class="item-name">3.880 Genesis Crystals</div>
+      <div class="item-amount">3.880</div>
+      <div class="item-price">Rp 595.000</div>
+    </div>
+    <div class="price-box" onclick="fillForm('8.080 Genesis Crystals','Rp 1.200.000')">
+      <div class="item-name">8.080 Genesis Crystals</div>
+      <div class="item-amount">8.080</div>
+      <div class="item-price">Rp 1.200.000</div>
+    </div>
+    <div class="price-box" onclick="fillForm('Welkin 1x','Rp 60.000')">
+      <div class="item-name">Welkin 1x</div>
+      <div class="item-amount">Monthly Card</div>
+      <div class="item-price">Rp 60.000</div>
+    </div>
+    <div class="price-box" onclick="fillForm('Welkin 2x','Rp 120.000')">
+      <div class="item-name">Welkin 2x</div>
+      <div class="item-amount">Monthly Card</div>
+      <div class="item-price">Rp 120.000</div>
+    </div>
+    <div class="price-box" onclick="fillForm('Welkin 3x','Rp 179.000')">
+      <div class="item-name">Welkin 3x</div>
+      <div class="item-amount">Monthly Card</div>
+      <div class="item-price">Rp 179.000</div>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <form id="orderForm">
+    <label for="uid">UID Genshin Impact</label>
+    <input type="text" id="uid" name="uid" placeholder="Masukkan UID" required>
+
+    <label for="username">Username Genshin Impact</label>
+    <input type="text" id="username" name="username" placeholder="Masukkan Username" required>
+
+    <label for="server">Server</label>
+    <select id="server" name="server" required>
+      <option value="">-- Pilih Server --</option>
+      <option value="Asia">Asia</option>
+      <option value="Europe">Europe</option>
+      <option value="America">America</option>
+      <option value="TW/HK/MO">TW/HK/MO</option>
+    </select>
+
+    <label for="item">Item</label>
+    <input type="text" id="item" name="item" readonly required>
+
+    <label for="price">Harga</label>
+    <input type="text" id="price" name="price" readonly required>
+
+    <button type="button" onclick="sendWhatsApp()">Kirim via WhatsApp</button>
+  </form>
+
+  <script>
+    function fillForm(item, price) {
+      document.getElementById("item").value = item;
+      document.getElementById("price").value = price;
+      document.getElementById("orderForm").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function sendWhatsApp() {
+      let uid = document.getElementById("uid").value;
+      let username = document.getElementById("username").value;
+      let server = document.getElementById("server").value;
+      let item = document.getElementById("item").value;
+      let price = document.getElementById("price").value;
+
+      if(!uid || !username || !server || !item || !price) {
+        alert("Harap lengkapi semua data.");
+        return;
+      }
+
+      let message = `Order Genshin Impact:%0AUID: ${uid}%0AUsername: ${username}%0AServer: ${server}%0AItem: ${item}%0AHarga: ${price}`;
+      let phone = "6283197962700";
+      let url = `https://wa.me/${phone}?text=${message}`;
+      window.open(url, "_blank");
+    }
+  </script>
+
+</body>
+</html>
